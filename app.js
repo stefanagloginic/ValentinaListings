@@ -3,7 +3,7 @@ import Application from './components/Application';
 import ApplicationStore from './stores/ApplicationStore';
 import RouteStore from './stores/RouteStore';
 import fetchrPlugin from 'fluxible-plugin-fetchr';
-import { config, obtainBaseApiUrl } from './configs/';
+import { config, obtainBaseApiUrl } from './ATTOM/configs/';
 
 const fetchrInstance = fetchrPlugin({
     xhrPath: obtainBaseApiUrl() // Path for XHR to be served from
