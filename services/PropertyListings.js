@@ -22,19 +22,18 @@ module.exports = {
         .get(url)
         .set({ apikey: API_STAGE_KEY, Accept: 'application/json' })
         .then((res) => {
+            let listings;
             if (res.ok) {
-                const listings = JSON.parse(JSON.stringify(res.text));
+                listings = JSON.parse(JSON.stringify(res.text));
 
                 callback(null, listings);
             }
 
-            callback(null, {});
+            callback(null, listings);
         }).catch((err) => {
             if (err) {
                 console.log('err',err);
             }
         });
     }
-    // update: function(resource, params, body, config, callback) {},
-    // delete: function(resource, params, config, callback) {}
 };

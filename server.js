@@ -61,6 +61,7 @@ server.use((req, res, next) => {
             if (err) {
                 console.log(err);
             } else {
+                // TODO: handling..data could come back as undefined if api req unsuccessful
                 console.log(data);
             }
         });
