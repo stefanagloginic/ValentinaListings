@@ -3,7 +3,7 @@ import querystring from 'querystring';
 import { config, obtainPropertyBaseApiUrl } from '../ATTOM/configs/';
 import { routes } from '../ATTOM/routes.js';
 
-module.exports = {
+export const PropertyListingsService = {
     name: 'listings',
     // at least one of the CRUD methods is required
     read: function(req, resource, params, configuration, callback) {

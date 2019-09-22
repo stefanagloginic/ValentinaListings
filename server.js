@@ -20,11 +20,12 @@ import ReactDOM from 'react-dom/server';
 import app from './app';
 import HtmlComponent from './components/Html';
 import { createElementWithContext } from 'fluxible-addons-react';
+import { PropertyListingsService } from './services/PropertyListings';
+
 const env = process.env.NODE_ENV;
-
 const debug = debugLib('valentinalistings');
-
 const server = express();
+
 server.use('/public', express['static'](path.join(__dirname, '/build')));
 server.use(compression());
 server.use(cookieParser());
@@ -35,7 +36,7 @@ server.use(csrf({cookie: true}));
 let fetchrPlugin = app.getPlugin('FetchrPlugin');
 
 // Register our services
-fetchrPlugin.registerService(require('./services/PropertyListings'));
+fetchrPlugin.registerService(PropertyListingsService);
 
 // Set up the fetchr middleware
 
