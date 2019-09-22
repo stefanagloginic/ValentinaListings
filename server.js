@@ -35,7 +35,7 @@ server.use(csrf({cookie: true}));
 let fetchrPlugin = app.getPlugin('FetchrPlugin');
 
 // Register our services
-// fetchrPlugin.registerService(require('./services/message'));
+fetchrPlugin.registerService(require('./services/PropertyListings'));
 
 // Set up the fetchr middleware
 
@@ -48,6 +48,22 @@ server.use((req, res, next) => {
             _csrf: req.csrfToken() // Make sure all XHR requests have the CSRF token
         }
     });
+
+    const fetcher = new Fetcher({
+        xhrPath: fetchrPlugin.getXhrPath(), // xhrPath will be ignored on the serverside fetcher instantiation
+        req: req
+    });
+
+    fetcher
+        .read('listings')
+        .params()
+        .end((err, data, meta) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(data);
+            }
+        });
 
     debug('Executing navigate action');
     context.getActionContext().executeAction(navigateAction, {

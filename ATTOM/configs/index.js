@@ -1,14 +1,16 @@
 const api = {
 	PROTOCOL: "https://",
-	BASE: "api.gateway.attomdata.com/areaapi/",
-	VERSION: "v2.0.0/",
+	BASE: "api.gateway.attomdata.com/",
+	PROPERTY_API: "propertyapi/",
+	VERSION: "v1.0.0/",
 };
 
 export const config = {
-	API_KEY: "", // populate locally
+	API_PRODUCTION_KEY: "", // populate locally
+	API_STAGE_KEY: ""
 };
 
-export const obtainBaseApiUrl = () => {
-	const { PROTOCOL, BASE, VERSION } = api;
-	return `${PROTOCOL}${BASE}${VERSION}`;
+export const obtainPropertyBaseApiUrl = () => {
+	const { PROTOCOL, BASE, VERSION, PROPERTY_API } = api;
+	return `${PROTOCOL}${BASE}${PROPERTY_API}${VERSION}`;
 };
