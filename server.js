@@ -8,26 +8,64 @@
 import express from 'express';
 import compression from 'compression';
 import bodyParser from 'body-parser';
+import Fetcher from 'fetchr';
 import path from 'path';
 import serialize from 'serialize-javascript';
 import {navigateAction} from 'fluxible-router';
 import debugLib from 'debug';
+import csrf from 'csurf';
+import cookieParser from 'cookie-parser';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import app from './app';
 import HtmlComponent from './components/Html';
 import { createElementWithContext } from 'fluxible-addons-react';
+import { PropertyListingsService } from './services/PropertyListings';
+
 const env = process.env.NODE_ENV;
-
 const debug = debugLib('valentinalistings');
-
 const server = express();
+
 server.use('/public', express['static'](path.join(__dirname, '/build')));
 server.use(compression());
+server.use(cookieParser());
 server.use(bodyParser.json());
+server.use(csrf({cookie: true}));
+
+// Get access to the fetchr plugin instance
+let fetchrPlugin = app.getPlugin('FetchrPlugin');
+
+// Register our services
+fetchrPlugin.registerService(PropertyListingsService);
+
+// Set up the fetchr middleware
+
+server.use(fetchrPlugin.getXhrPath(), Fetcher.middleware());
 
 server.use((req, res, next) => {
-    const context = app.createContext();
+    const context = app.createContext({
+        req: req, // The fetchr plugin depends on this
+        xhrContext: {
+            _csrf: req.csrfToken() // Make sure all XHR requests have the CSRF token
+        }
+    });
+
+    const fetcher = new Fetcher({
+        xhrPath: fetchrPlugin.getXhrPath(), // xhrPath will be ignored on the serverside fetcher instantiation
+        req: req
+    });
+
+    fetcher
+        .read('listings')
+        .params()
+        .end((err, data, meta) => {
+            if (err) {
+                console.log(err);
+            } else {
+                // TODO: handling..data could come back as undefined if api req unsuccessful
+                console.log(data);
+            }
+        });
 
     debug('Executing navigate action');
     context.getActionContext().executeAction(navigateAction, {
