@@ -19,21 +19,21 @@ export const PropertyListingsService = {
         const url = `${baseUrl}${zipCode}?${param}`;
 
         superagent
-        .get(url)
-        .set({ apikey: API_STAGE_KEY, Accept: 'application/json' })
-        .then((res) => {
-            let listings;
-            if (res.ok) {
-                listings = JSON.parse(JSON.stringify(res.text));
+            .get(url)
+            .set({ apikey: API_STAGE_KEY, Accept: 'application/json' })
+            .then((res) => {
+                let listings;
+                if (res.ok) {
+                    listings = JSON.parse(JSON.stringify(res.text));
+
+                    callback(null, listings);
+                }
 
                 callback(null, listings);
-            }
-
-            callback(null, listings);
-        }).catch((err) => {
-            if (err) {
-                console.log('err',err);
-            }
-        });
+            }).catch((err) => {
+                if (err) {
+                    console.log('err',err);
+                }
+            });
     }
 };

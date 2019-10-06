@@ -1,6 +1,8 @@
 node_modules
 *.log
 package-lock.json
+.nyc_output
+artifacts
 
 # Elastic Beanstalk Files
 !.elasticbeanstalk/*.cfg.yml

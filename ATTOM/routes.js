@@ -1,3 +1,3 @@
 export const routes = {
-	zipCode: 'property/address'
+    zipCode: 'property/address'
 };
