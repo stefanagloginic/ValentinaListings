@@ -6,15 +6,15 @@ import { routes } from '../ATTOM/routes.js';
 export const PropertyListingsService = {
     name: 'listings',
     // at least one of the CRUD methods is required
-    read: function(req, resource, params, configuration, callback) {
+    read: function(req, resource, params = {}, configuration, callback) {
         const { API_STAGE_KEY } = config; // TODO: check env? not working
         const { zipCode } = routes;
 
-        const paramsObj = {
-            postalcode: '90034' // TODO: HARDCODED NEED TO CHANGE TO LOCAL
-        };
+        const { postalCode } = params;
+        const paramsObj = { postalCode };
+
         const baseUrl = obtainPropertyBaseApiUrl();
-        const param = querystring.stringify(paramsObj)
+        const param = querystring.stringify(paramsObj);
 
         const url = `${baseUrl}${zipCode}?${param}`;
 
@@ -25,7 +25,6 @@ export const PropertyListingsService = {
             let listings;
             if (res.ok) {
                 listings = JSON.parse(JSON.stringify(res.text));
-
                 callback(null, listings);
             }
 
