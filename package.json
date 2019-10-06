@@ -10,7 +10,7 @@
     "start": "node start.js",
     "test": "NODE_ENV=test BABEL_ENV=test XUNIT_FILE=artifacts/test/xunit.xml nyc --report-dir ${COVERAGE_DIR:-artifacts/coverage} --reporter lcov mocha --no-timeouts --exit --max-old-space-size=4096 --require babel-register,./tests/lib/enzyme.js tests/unit --recursive",
     "testDir": "NODE_ENV=test mocha --no-timeouts --exit --require babel-register,./tests/lib/enzyme.js --recursive",
-    "commit-test": "NODE_ENV=test BABEL_ENV=test mocha --no-timeouts --exit --max-old-space-size=4096 --require babel-register,./tests/lib/enzyme.js tests/unit --recursive",
+    "commit-test": "NODE_ENV=test BABEL_ENV=test mocha --no-timeouts --exit --max-old-space-size=4096 --require babel-register,./tests/lib/enzyme.js tests/unit --recursive"
   },
   "dependencies": {
     "babel": "^6.5.2",
