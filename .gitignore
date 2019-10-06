@@ -1,2 +1,7 @@
 node_modules
 *.log
+package-lock.json
+
+# Elastic Beanstalk Files
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
