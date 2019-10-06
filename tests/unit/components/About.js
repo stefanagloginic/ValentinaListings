@@ -14,6 +14,6 @@ describe('About component tests', function () {
 
     it('render', function () {
         const wrapper = shallow(React.createElement(component, {}), {context: context});
-        expect(wrapper).to.not.be.ok;
+        expect(wrapper).to.be.ok;
     });
 });
