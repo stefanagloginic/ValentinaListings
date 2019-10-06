@@ -2,6 +2,10 @@ branch-defaults:
   aws-elastic-beanstalk:
     environment: production
     group_suffix: null
+environment-defaults:
+  production:
+    branch: null
+    repository: null
 global:
   application_name: ValentinaListings
   branch: null
