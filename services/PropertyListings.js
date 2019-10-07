@@ -25,7 +25,6 @@ export const PropertyListingsService = {
             let listings;
             if (res.ok) {
                 listings = JSON.parse(JSON.stringify(res.text));
-                callback(null, listings);
             }
 
             callback(null, listings);
