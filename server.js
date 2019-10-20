@@ -55,18 +55,6 @@ server.use((req, res, next) => {
         req: req
     });
 
-    fetcher
-        .read('listings')
-        .params()
-        .end((err, data, meta) => {
-            if (err) {
-                console.log(err);
-            } else {
-                // TODO: handling..data could come back as undefined if api req unsuccessful
-                console.log(data);
-            }
-        });
-
     debug('Executing navigate action');
     context.getActionContext().executeAction(navigateAction, {
         url: req.url
