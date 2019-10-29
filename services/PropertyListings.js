@@ -17,21 +17,21 @@ export const PropertyListingsService = {
         const param = querystring.stringify(paramsObj);
 
         const url = `${baseUrl}${zipCode}?${param}`;
+        callback(null, {fake:'listings'});
+        // superagent
+        // .get(url)
+        // .set({ apikey: API_STAGE_KEY, Accept: 'application/json' })
+        // .then((res) => {
+        //     let listings;
+        //     if (res.ok) {
+        //         listings = JSON.parse(JSON.stringify(res.text));
+        //     }
 
-        superagent
-        .get(url)
-        .set({ apikey: API_STAGE_KEY, Accept: 'application/json' })
-        .then((res) => {
-            let listings;
-            if (res.ok) {
-                listings = JSON.parse(JSON.stringify(res.text));
-            }
-
-            callback(null, listings);
-        }).catch((err) => {
-            if (err) {
-                console.log('err',err);
-            }
-        });
+        //     callback(null, listings);
+        // }).catch((err) => {
+        //     if (err) {
+        //         console.log('err',err);
+        //     }
+        // });
     }
 };
