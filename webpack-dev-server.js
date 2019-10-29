@@ -13,6 +13,6 @@ new WebpackDevServer(webpack(config), {
     }
 }).listen(3000, function () {
     shell.env.PORT = shell.env.PORT || 3001;
-    shell.exec('"./node_modules/.bin/nodemon" start.js -e js,jsx', function () {});
+    shell.exec('"./node_modules/.bin/nodemon" --exec npm run start --ignore build/', function () {});
     console.log('Webpack Dev Server listening on port 3000');
 });
