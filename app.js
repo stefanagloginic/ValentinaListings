@@ -13,10 +13,7 @@ import RouteStore from './stores/RouteStore';
 // Utils
 import { provideContext } from 'fluxible-addons-react';
 
-const fetchrInstance = fetchrPlugin({
-    xhrPath: obtainPropertyBaseApiUrl() // Path for XHR to be served from
-});
-
+const fetchrInstance = fetchrPlugin();
 // create new fluxible instance
 const app = new Fluxible({
     component: Application
