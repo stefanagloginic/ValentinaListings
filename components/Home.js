@@ -12,7 +12,6 @@ import connectToStores from 'fluxible-addons-react/connectToStores';
 export class Home extends React.PureComponent {
     render() {
     	const { properties } = this.props;
-    	console.log('in render...', properties);
     	return (
 	        <div>
 	            <h2>Home</h2>
