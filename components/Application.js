@@ -1,11 +1,16 @@
-/*globals document*/
-
+// Components
 import React from 'react';
 import Nav from './Nav';
+
+// Stores
 import ApplicationStore from '../stores/ApplicationStore';
+
+// Configs
+import pages from '../configs/routes';
+
+// Utils
 import { connectToStores, provideContext } from 'fluxible-addons-react';
 import { handleHistory } from 'fluxible-router';
-import pages from '../configs/routes';
 
 class Application extends React.Component {
     render() {

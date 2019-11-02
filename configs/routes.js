@@ -1,6 +1,6 @@
 import Home from '../components/Home';
 import About from '../components/About';
-import { getListings } from "../actions/routeActions";
+import { getListings } from '../actions/routeActions';
 
 export default {
     home: {
