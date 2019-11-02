@@ -10,9 +10,6 @@ import ApplicationStore from './stores/ApplicationStore';
 import PropertyListingsStore from './stores/ListingsStore';
 import RouteStore from './stores/RouteStore';
 
-// Utils
-import { provideContext } from 'fluxible-addons-react';
-
 const fetchrInstance = fetchrPlugin();
 // create new fluxible instance
 const app = new Fluxible({
