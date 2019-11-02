@@ -10,12 +10,9 @@ import PropertyListingsStore from '../stores/ListingsStore';
 import connectToStores from 'fluxible-addons-react/connectToStores';
 
 export class Home extends React.PureComponent {
-    componentDidMount() {
-        console.log('hello world', this.props);
-    }
     render() {
     	const { properties } = this.props;
-    	console.log('in render...', this.props);
+    	console.log('in render...', properties);
     	return (
 	        <div>
 	            <h2>Home</h2>
@@ -25,14 +22,9 @@ export class Home extends React.PureComponent {
     };
 };
 
-// Home.propTypes = {
-// 	properties: PropTypes..isRequired
-// };
-
 export default connectToStores(Home,
     [PropertyListingsStore],
     (context) => {
-
         const listingsStore = context.getStore('PropertyListingsStore');
 
         return {

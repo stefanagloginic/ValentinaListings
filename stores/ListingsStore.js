@@ -8,25 +8,21 @@ class PropertyListingsStore extends BaseStore {
         };
     }
 
-    loadListings(payload) {
-        payload = payload || {};
+    loadListings(payload = {}) {
         const state = this.state;
         const { listings } = payload;
 
         if (listings) {
             this.state = {
                 ...state,
-                properties: payload.listings
+                properties: listings
             };
-            console.log('this.state from loadListings (dispatch has happened)', this.state);
-            this.state = payload.listings;
 
             this.emitChange();
         }
     }
 
     getPropertyListings() {
-        console.log('in property listings function from connectToStore..');
         return this.state.properties;
     }
 

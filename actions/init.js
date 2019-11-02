@@ -1,4 +1,4 @@
-const TIMEOUT = 30000;
+const TIMEOUT = 20000;
 
 export const loadPropertyListings = (context, param = {}, done) => {
     // TODO: params has hardcoded zipcode, need to change

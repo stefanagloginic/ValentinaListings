@@ -18,7 +18,6 @@ class Application extends React.Component {
 
         return (
             <div>
-            i am client side?
                 <Nav currentRoute={this.props.currentRoute} links={pages} />
                 <Handler />
             </div>
