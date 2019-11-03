@@ -3,7 +3,7 @@ import ApplicationStore from '../stores/ApplicationStore';
 
 export default function Html(props) {
     return (
-        <html>
+        <html id="atomic" className="atomic">
             <head>
                 <meta charSet="utf-8" />
                 <title>{props.context.getStore(ApplicationStore).getPageTitle()}</title>

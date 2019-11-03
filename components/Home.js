@@ -12,9 +12,10 @@ import connectToStores from 'fluxible-addons-react/connectToStores';
 export class Home extends React.PureComponent {
     render() {
     	const { properties } = this.props;
+    	console.log(properties);
     	return (
 	        <div>
-	            <h2>Home</h2>
+	            <h2 className="Bgc(green)">Home</h2>
 	            <p>Welcome to the Valentina's listings!</p>
 	        </div>
 	    );

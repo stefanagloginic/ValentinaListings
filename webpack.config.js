@@ -3,7 +3,7 @@ var path = require('path');
 
 var webpackConfig = {
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx', '.css']
     },
     entry: [
         'webpack-dev-server/client?http://localhost:3000',
@@ -20,12 +20,27 @@ var webpackConfig = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
+                loader: 'webpack-atomizer-loader',
+                query: {
+                    configPath: path.resolve('./atomCssConfig.js')
+                }
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
                 loaders: [
                     require.resolve('react-hot-loader'),
                     require.resolve('babel-loader')
                 ]
             },
-            { test: /\.json$/, loader: 'json-loader'}
+            { test: /\.json$/, loader: 'json-loader'},
+            {
+                test: /\.css$/,
+                loaders: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            }
         ]
     },
     node: {
