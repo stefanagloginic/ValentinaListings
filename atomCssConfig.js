@@ -1,5 +1,4 @@
 module.exports = {
-    cssDest: './app.css',
     options: {
         namespace: '#atomic',
     },

@@ -1,4 +1,5 @@
 node_modules
+build/
 *.log
 package-lock.json
 .nyc_output
@@ -7,5 +8,3 @@ artifacts
 # Elastic Beanstalk Files
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-
-build/*
