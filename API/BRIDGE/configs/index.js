@@ -6,8 +6,8 @@ const api = {
 };
 
 export const config = {
-	API_PRODUCTION_KEY: "75ef113eba8264d6503586a3666b5c46", // populate locally
-	API_STAGE_KEY: "75ef113eba8264d6503586a3666b5c46"
+	API_PRODUCTION_KEY: "", // populate locally
+	API_STAGE_KEY: ""
 };
 
 export const obtainPropertyBaseApiUrl = () => {
