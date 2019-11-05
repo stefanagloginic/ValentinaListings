@@ -23,7 +23,6 @@ class LocationStore extends BaseStore {
     }
 
     getLocation() {
-        console.log('getting location', this.state.location);
         return this.state.location;
     }
 

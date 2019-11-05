@@ -12,6 +12,7 @@ export const GeoLocationService = {
         const { ipAndCoordinates } = routes;
 
         const url = `${baseUrl}${ipAndCoordinates}`;
+
         superagent
             .get(url)
             .query({ access_key: API_ACCESS_KEY })
