@@ -8,7 +8,8 @@ var webpackConfig = {
     entry: [
         'webpack-dev-server/client?http://localhost:3000',
         'webpack/hot/only-dev-server',
-        './client.js'
+        './client.js',
+        'babel-polyfill'
     ],
     output: {
         path: path.resolve('./build/js'),
