@@ -12,8 +12,7 @@ export const getListings = (context, route, done) => {
 
     const actions = {
     	loadLocation: {
-    		action: getCoordinates,
-    		isCritical: true
+            action: getCoordinates
     	},
     	loadListings: [
     		'loadLocation',
