@@ -9,6 +9,7 @@ import Application from './components/Application';
 import ApplicationStore from './stores/ApplicationStore';
 import PropertyListingsStore from './stores/ListingsStore';
 import LocationStore from './stores/LocationStore';
+import GeolocationStore from './stores/GeolocationStore';
 import RouteStore from './stores/RouteStore';
 
 const fetchrInstance = fetchrPlugin();
@@ -24,5 +25,6 @@ app.registerStore(RouteStore);
 app.registerStore(ApplicationStore);
 app.registerStore(PropertyListingsStore);
 app.registerStore(LocationStore);
+app.registerStore(GeolocationStore);
 
 module.exports = app;
