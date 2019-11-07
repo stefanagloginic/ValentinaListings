@@ -1,6 +1,6 @@
 import Fluxible from 'fluxible';
 import fetchrPlugin from 'fluxible-plugin-fetchr';
-import { obtainPropertyBaseApiUrl } from './ATTOM/configs/';
+import 'babel-polyfill';
 
 // Components
 import Application from './components/Application';
@@ -8,6 +8,7 @@ import Application from './components/Application';
 // Stores
 import ApplicationStore from './stores/ApplicationStore';
 import PropertyListingsStore from './stores/ListingsStore';
+import LocationStore from './stores/LocationStore';
 import RouteStore from './stores/RouteStore';
 
 const fetchrInstance = fetchrPlugin();
@@ -22,5 +23,6 @@ app.plug(fetchrInstance);
 app.registerStore(RouteStore);
 app.registerStore(ApplicationStore);
 app.registerStore(PropertyListingsStore);
+app.registerStore(LocationStore);
 
 module.exports = app;

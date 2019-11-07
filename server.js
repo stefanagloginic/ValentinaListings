@@ -20,7 +20,10 @@ import ReactDOM from 'react-dom/server';
 import app from './app';
 import HtmlComponent from './components/Html';
 import { createElementWithContext } from 'fluxible-addons-react';
+
+// Services
 import { PropertyListingsService } from './services/PropertyListings';
+import { GeoLocationService } from './services/GeoLocation';
 
 const env = process.env.NODE_ENV;
 const debug = debugLib('valentinalistings');
@@ -37,6 +40,7 @@ let fetchrPlugin = app.getPlugin('FetchrPlugin');
 
 // Register our services
 fetchrPlugin.registerService(PropertyListingsService);
+fetchrPlugin.registerService(GeoLocationService);
 
 // Set up the fetchr middleware
 

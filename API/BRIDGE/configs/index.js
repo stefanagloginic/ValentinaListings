@@ -1,8 +1,8 @@
 const api = {
 	PROTOCOL: "https://",
-	BASE: "api.gateway.attomdata.com/",
-	PROPERTY_API: "propertyapi/",
-	VERSION: "v1.0.0/",
+	BASE: "api.bridgedataoutput.com/",
+	PROPERTY_API: "api/",
+	VERSION: "v2/",
 };
 
 export const config = {
