@@ -20,7 +20,7 @@ export const GeoLocationService = {
                 let location;
 
                 if (res.ok) {
-                    location = JSON.parse(JSON.stringify(res.text));
+                    location = JSON.parse(res.text);
                 }
 
                 callback(null, location);

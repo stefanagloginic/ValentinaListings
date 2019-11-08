@@ -20,11 +20,12 @@ export const PropertyListingsService = {
 
         superagent
             .get(url)
-            .query({ access_token: API_STAGE_KEY })
+            .query({ access_token: API_STAGE_KEY, 'limit': 15 })
             .then((res) => {
                 let listings;
                 if (res.ok) {
-                    listings = JSON.parse(JSON.stringify(res.text));
+                    listings = JSON.parse(res.text);
+                    listings = listings.bundle || [];
                 }
 
                 callback(null, listings);

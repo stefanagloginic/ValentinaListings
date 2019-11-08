@@ -11,6 +11,12 @@ import { getCurrentPosition } from '../actions/geolocation';
 // Utils
 import connectToStores from 'fluxible-addons-react/connectToStores';
 
+// Components
+import PropertyCard from './primitives/PropertyCard';
+
+// Selectors
+import { getListingKey } from '../selectors/properties';
+
 export class Home extends React.PureComponent {
     componentDidMount () {
         this.context.executeAction(getCurrentPosition);
@@ -18,11 +24,10 @@ export class Home extends React.PureComponent {
 
     render() {
     	const { properties } = this.props;
-    	console.log(this.props);
+
     	return (
 	        <div>
-	            <h2 className="Bgc(green)">Home</h2>
-	            <p>Welcome to the Valentina's listings!</p>
+                <PropertyCard />
 	        </div>
 	    );
     };

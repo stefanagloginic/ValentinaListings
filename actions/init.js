@@ -1,3 +1,6 @@
+// Selectors
+import { getLatitude, getLongitude } from '../selectors/geolocation';
+
 const TIMEOUT = 20000;
 
 export const loadPropertyListings = (context, param, done) => {
@@ -23,7 +26,10 @@ export const getCoordinates = (context, param, done) => {
             return done(err);
         }
 
-        context.dispatch('LOAD_LOCATION_SUCCESS', { location: data });
+        const latitude = getLatitude(data);
+        const longitude = getLongitude(data);
+        context.dispatch('LOAD_LOCATION_SUCCESS', {location: {latitude, longitude}});
+
         done();
     });
 };
