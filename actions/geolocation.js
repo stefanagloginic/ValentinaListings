@@ -61,9 +61,9 @@ export function getCurrentPosition (context, payload, callback) {
     callback = callback || noop;
     context.dispatch(ATTEMPT);
 
-    context.executeAction(doGeoCheck, doGeoCheck, function (err, result) {
+    context.executeAction(doGeoCheck, {}, function (err, result) {
         result = result || {};
-        
+
         if (err) {
             context.dispatch(FAILURE, err);
             return callback(err);
